@@ -3,7 +3,10 @@ var app = express()
 const ejs = require('ejs')
 const mongoose = require("mongoose")
 const bodyparser = require('body-parser')
+var lc = require("./leetcode.js");
+var gfg = require("./gfg.js");
 app.use(express.static("public"))
+
 app.set('view engine', 'ejs')
 app.use(bodyparser.urlencoded({ extended: true }))
 mongoose.connect("mongodb://localhost:27017/codeTrackerDB")
@@ -24,6 +27,9 @@ app.get("/login", (req, res) => {
 app.get("/register", (req, res) => {
     res.render("register")
 })
+app.get("/", (req, res) => {
+    res.render("main")
+})
 app.post('/login', (req, res) => {
     const username = req.body.username
     const password = req.body.password
@@ -34,7 +40,7 @@ app.post('/login', (req, res) => {
             else {
                 //console.log(founduser)
                 if (founduser !== null && founduser.password === password) {
-                    res.render('success')
+                    res.render('main')
                 } else {
                     console.log('error')
                         //console.log(founduser.password + password)
@@ -66,4 +72,7 @@ app.post('/register', (req, res) => {
             res.render("success")
     })
 })
+console.log(lc.letscall("dabbiruhaneesh"))
+console.log(lc.letscall("dabbiruhaneesh").ans)
+console.log(gfg.scrapeData("dabbiruhaneesh"))
 app.listen(3000, (req, res) => console.log("runnning on port 3000"));
