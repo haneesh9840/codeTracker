@@ -15,7 +15,7 @@
                             <a class="nav-link active" aria-current="page" href="#">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Hello haneesh</a>
+                            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Hello <%=uname%></a>
                         </li>
                     </ul>
                     <div class="d-flex">
@@ -25,10 +25,21 @@
             </div>
         </nav>
         <div>
+            gfg total solved:
+            <%=gfg_c%>
+        </div>
+        <div>
             gfg today solved:
+            <%=todaygfg%>
+        </div>
+        <div>
+            lc total solved:
+            <%=lc_c%>
         </div>
         <div>
             lc today solved:
+            <%=todaylc%>
         </div>
+
 
         <%- include('partials/footer') %>
